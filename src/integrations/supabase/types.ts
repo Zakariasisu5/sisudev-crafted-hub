@@ -14,7 +14,81 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          budget: string | null
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          project_type: string | null
+        }
+        Insert: {
+          budget?: string | null
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          project_type?: string | null
+        }
+        Update: {
+          budget?: string | null
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          project_type?: string | null
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          approved: boolean
+          avatar_url: string | null
+          company: string | null
+          consent: boolean
+          created_at: string
+          email: string
+          id: string
+          job_title: string | null
+          name: string
+          profile_url: string | null
+          testimonial: string
+        }
+        Insert: {
+          approved?: boolean
+          avatar_url?: string | null
+          company?: string | null
+          consent?: boolean
+          created_at?: string
+          email: string
+          id?: string
+          job_title?: string | null
+          name: string
+          profile_url?: string | null
+          testimonial: string
+        }
+        Update: {
+          approved?: boolean
+          avatar_url?: string | null
+          company?: string | null
+          consent?: boolean
+          created_at?: string
+          email?: string
+          id?: string
+          job_title?: string | null
+          name?: string
+          profile_url?: string | null
+          testimonial?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
