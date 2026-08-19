@@ -4,6 +4,23 @@ import thumbConfnect from "@/assets/thumb-confnect.jpg";
 import thumbBillify from "@/assets/thumb-billify.jpg";
 import thumbFarm from "@/assets/thumb-farm.jpg";
 import thumbSentinel from "@/assets/thumb-sentinel.jpg";
+import thumbBizlaunch from "@/assets/thumb-bizlaunch360.jpg";
+import thumbWeb3thrive from "@/assets/thumb-web3thriveai.jpg";
+import thumbVoiceChain from "@/assets/thumb-voicechainpay.jpg";
+import thumbGlobepay from "@/assets/thumb-globepayx.jpg";
+import thumbBiologic from "@/assets/thumb-biologicchain.jpg";
+import thumbPulsepay from "@/assets/thumb-pulsepay.jpg";
+import thumbAiAgent from "@/assets/thumb-aiagent.jpg";
+import thumbMicrofarmly from "@/assets/thumb-microfarmly.jpg";
+import thumbAttendly from "@/assets/thumb-attendly.jpg";
+import thumbGreenpulse from "@/assets/thumb-greenpulse.jpg";
+import thumbEco from "@/assets/thumb-ecocompanion.jpg";
+import thumbArgon from "@/assets/thumb-argon.jpg";
+import thumbGpa from "@/assets/thumb-gpa.jpg";
+import thumbStudents from "@/assets/thumb-studentdirectory.jpg";
+import thumbDocker from "@/assets/thumb-docker.jpg";
+import thumbFixphone from "@/assets/thumb-fixphone.jpg";
+
 
 export const categories = [
   "All",
