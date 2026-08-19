@@ -26,8 +26,8 @@ async function fetchApproved(): Promise<Testimonial[]> {
     role: row.job_title ?? "",
     company: row.company ?? "",
     quote: row.testimonial,
-    profileUrl: row.profile_url ?? undefined,
-    avatarUrl: row.avatar_url ?? undefined,
+    ...(row.profile_url ? { profileUrl: row.profile_url } : {}),
+    ...(row.avatar_url ? { avatarUrl: row.avatar_url } : {}),
   }));
 }
 
