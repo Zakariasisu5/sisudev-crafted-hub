@@ -163,6 +163,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "React", "AI", "Tailwind CSS"],
     githubUrl: "https://github.com/Zakariasisu5/bizlaunch360",
     liveUrl: "https://bizlaunch360.vercel.app",
+    thumbnail: thumbBizlaunch,
   },
   {
     repo: "web3thriveai",
@@ -173,6 +174,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "Blockchain", "AI", "NFT"],
     githubUrl: "https://github.com/Zakariasisu5/web3thriveai",
     liveUrl: "https://web3thriveai.vercel.app",
+    thumbnail: thumbWeb3thrive,
   },
   {
     repo: "voice-chain-pay",
@@ -183,6 +185,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "ZetaChain", "AI", "Web3"],
     githubUrl: "https://github.com/Zakariasisu5/voice-chain-pay",
     liveUrl: "https://payroll-psi-flax.vercel.app",
+    thumbnail: thumbVoiceChain,
   },
   {
     repo: "aptos-orbit",
@@ -193,6 +196,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "Aptos", "Move", "dApp"],
     githubUrl: "https://github.com/Zakariasisu5/aptos-orbit",
     liveUrl: "https://globepay.vercel.app",
+    thumbnail: thumbGlobepay,
   },
   {
     repo: "Biological-Chain-Project",
@@ -203,6 +207,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "Blockchain", "AI", "Healthcare"],
     githubUrl: "https://github.com/Zakariasisu5/Biological-Chain-Project",
     liveUrl: "https://biological-chain-project.vercel.app",
+    thumbnail: thumbBiologic,
   },
   {
     repo: "pulsepay",
@@ -213,6 +218,7 @@ export const projects: Project[] = [
     technologies: ["JavaScript", "Sonic", "Smart Contracts", "Web3"],
     githubUrl: "https://github.com/Zakariasisu5/pulsepay",
     liveUrl: "https://pulsepay-tau.vercel.app",
+    thumbnail: thumbPulsepay,
   },
   {
     repo: "AI-AGENT",
@@ -222,6 +228,7 @@ export const projects: Project[] = [
     category: "AI",
     technologies: ["Python", "Machine Learning", "LLM"],
     githubUrl: "https://github.com/Zakariasisu5/AI-AGENT",
+    thumbnail: thumbAiAgent,
   },
   {
     repo: "microfarmly-grow-together",
@@ -232,6 +239,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "React", "AI"],
     githubUrl: "https://github.com/Zakariasisu5/microfarmly-grow-together",
     liveUrl: "https://microfarmly-grow-together.vercel.app",
+    thumbnail: thumbMicrofarmly,
   },
   {
     repo: "school-connect",
@@ -242,6 +250,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "React", "Supabase"],
     githubUrl: "https://github.com/Zakariasisu5/school-connect",
     liveUrl: "https://attendly-khaki.vercel.app/",
+    thumbnail: thumbAttendly,
   },
   {
     repo: "Green-Pulse",
@@ -252,6 +261,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "React", "Tailwind CSS"],
     githubUrl: "https://github.com/Zakariasisu5/Green-Pulse",
     liveUrl: "https://green-pulse-mu.vercel.app/",
+    thumbnail: thumbGreenpulse,
   },
   {
     repo: "eco-companion",
@@ -262,6 +272,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "React", "Tailwind CSS"],
     githubUrl: "https://github.com/Zakariasisu5/eco-companion",
     liveUrl: "https://green-living-companion.vercel.app",
+    thumbnail: thumbEco,
   },
   {
     repo: "Argon-Admin-Dashboard-",
@@ -272,6 +283,7 @@ export const projects: Project[] = [
     technologies: ["JavaScript", "React", "Vite", "Material UI"],
     githubUrl: "https://github.com/Zakariasisu5/Argon-Admin-Dashboard-",
     liveUrl: "https://argon-admin-dashboard.vercel.app",
+    thumbnail: thumbArgon,
   },
   {
     repo: "uds-gpa-calculator",
@@ -282,6 +294,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "React"],
     githubUrl: "https://github.com/Zakariasisu5/uds-gpa-calculator",
     liveUrl: "https://uds-gpa-calculator.vercel.app",
+    thumbnail: thumbGpa,
   },
   {
     repo: "student-directory",
@@ -292,6 +305,7 @@ export const projects: Project[] = [
     technologies: ["JavaScript", "React"],
     githubUrl: "https://github.com/Zakariasisu5/student-directory",
     liveUrl: "https://student-directory-delta.vercel.app",
+    thumbnail: thumbStudents,
   },
   {
     repo: "welcome-to-docker1",
@@ -301,6 +315,7 @@ export const projects: Project[] = [
     category: "Backend",
     technologies: ["Docker", "JavaScript"],
     githubUrl: "https://github.com/Zakariasisu5/welcome-to-docker1",
+    thumbnail: thumbDocker,
   },
   {
     repo: "mobile-tech-hub-online",
@@ -311,6 +326,7 @@ export const projects: Project[] = [
     technologies: ["TypeScript", "React", "Tailwind CSS"],
     githubUrl: "https://github.com/Zakariasisu5/mobile-tech-hub-online",
     liveUrl: "https://fix-phone-pro.vercel.app",
+    thumbnail: thumbFixphone,
   },
 ];
 
