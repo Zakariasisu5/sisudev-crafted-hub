@@ -1,7 +1,8 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import heroVisual from "@/assets/hero-visual.jpg";
+import portraitAsset from "@/assets/zakaria-portrait.jpg.asset.json";
 import { availability, hero, person, stats } from "@/data/site";
+
 
 export function Hero() {
   const reduced = useReducedMotion();
