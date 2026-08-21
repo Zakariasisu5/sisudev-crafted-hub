@@ -19,8 +19,8 @@ export function Services() {
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Services"
-          title="What I build"
-          description="End-to-end engineering across product, platform and protocol."
+          title="What I do"
+          description="From concept to production. Frontend, backend, and everything between."
         />
 
         <ul className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
@@ -28,22 +28,22 @@ export function Services() {
             const Icon = icons[service.icon] ?? Layers;
             return (
               <Reveal as="li" key={service.number} delay={(i % 3) * 0.06} className="bg-surface">
-                <div className="group h-full p-6 transition-colors hover:bg-surface-raised">
+                <div className="group h-full p-7 transition-all hover:bg-surface-raised">
                   <div className="flex items-center justify-between">
-                    <span className="grid h-10 w-10 place-items-center rounded-md border border-border bg-background text-primary">
-                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    <span className="grid h-11 w-11 place-items-center rounded-lg border border-border bg-background text-primary transition-all group-hover:border-primary/40 group-hover:bg-primary/5">
+                      <Icon className="h-4.5 w-4.5" aria-hidden="true" />
                     </span>
-                    <span className="font-mono text-xs text-muted-foreground">{service.number}</span>
+                    <span className="font-mono text-xs text-muted-foreground/60">{service.number}</span>
                   </div>
-                  <h3 className="mt-5 text-lg font-semibold">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  <h3 className="mt-6 text-lg font-semibold">{service.title}</h3>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                  <ul className="mt-5 flex flex-wrap gap-2">
                     {service.tags.map((tag) => (
                       <li
                         key={tag}
-                        className="rounded border border-border px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                        className="rounded-md border border-border bg-background px-2.5 py-1 font-mono text-[10px] text-muted-foreground"
                       >
                         {tag}
                       </li>

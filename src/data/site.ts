@@ -30,29 +30,29 @@ export const availability = {
 
 export const hero = {
   badge: "Available for selected projects",
-  headline: "Building software that turns ambitious ideas into real products.",
+  headline: "I build software that ships.",
   support: "Frontend. Backend. Web3. AI. Product Engineering.",
   description:
-    "I design and engineer modern software across frontend, backend, Web3, and AI — from the first idea to a scalable production-ready product.",
+    "Full-stack engineer specializing in high-performance web applications, decentralized systems, and AI-powered products. I turn technical challenges into shipped features.",
 } as const;
 
 export const about = {
-  title: "More than a developer. I'm a builder.",
+  title: "Developer, founder, problem solver.",
   paragraphs: [
-    "I'm a software developer focused on building products that combine strong engineering with great user experiences. My work spans frontend development, backend architecture, Web3, AI, and startup product engineering.",
-    "I enjoy solving complex technical problems, designing scalable systems, improving product experiences, and turning ideas into working products.",
-    "Beyond writing code, I work as a founder and technical leader, helping teams turn concepts into products and make practical engineering decisions.",
+    "I write code that solves real problems. Whether it's a React dashboard, a Solana smart contract, or an AI agent—I focus on shipping working solutions, not just prototypes.",
+    "My background spans full-stack development, blockchain infrastructure, and AI integration. I've built payment systems, decentralized applications, and product analytics platforms that people actually use.",
+    "As a founder and CTO, I've learned that great engineering isn't just about clean code—it's about making the right tradeoffs, shipping fast, and iterating based on feedback.",
   ],
   intro:
-    "I'm Zakaria Sisu, a software developer and technical builder focused on creating high-performance web applications, AI-powered products, and decentralized systems. I work across frontend, backend, Web3, and AI, turning complex ideas into reliable and scalable products. As a founder and technical leader, I also enjoy taking products from early concepts to production while helping teams make strong technical decisions.",
+    "I'm Zakaria Sisu, a full-stack developer and founder based in Ghana. I build web applications, blockchain systems, and AI-powered tools. My work focuses on practical engineering—choosing the right stack, writing maintainable code, and delivering features that solve real user problems.",
 } as const;
 
 export const stats = [
-  { value: "4+", label: "Years Building Software" },
-  { value: "10+", label: "Projects & Products" },
-  { value: "Full-Stack", label: "Engineering" },
-  { value: "Web3 + AI", label: "Specialization" },
-  { value: "Founder", label: "Technical Leadership" },
+  { value: "4+", label: "Years Experience" },
+  { value: "20+", label: "Projects Shipped" },
+  { value: "∞", label: "Coffee Consumed" },
+  { value: "Web3 + AI", label: "Specialties" },
+  { value: "Remote", label: "Work Style" },
 ] as const;
 
 export type StackGroup = { name: string; items: string[] };
@@ -136,7 +136,7 @@ export const services: Service[] = [
     number: "01",
     title: "Frontend Development",
     description:
-      "Build fast, responsive and accessible user interfaces using modern React and TypeScript technologies.",
+      "Fast, responsive interfaces using React, TypeScript, and modern tooling. I write components that scale and UIs that feel smooth.",
     tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     icon: "layout",
   },
@@ -144,7 +144,7 @@ export const services: Service[] = [
     number: "02",
     title: "Backend Development",
     description:
-      "Build scalable APIs, authentication systems, databases, business logic and backend infrastructure.",
+      "APIs, databases, and business logic. From authentication flows to data pipelines, I build backends that handle real traffic.",
     tags: ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
     icon: "server",
   },
@@ -152,7 +152,7 @@ export const services: Service[] = [
     number: "03",
     title: "Full-Stack Development",
     description:
-      "Build complete products from database architecture and APIs to polished frontend experiences.",
+      "End-to-end product development. Database design, API architecture, frontend polish—everything needed to ship a complete feature.",
     tags: ["React", "Node.js", "Supabase", "Prisma"],
     icon: "layers",
   },
@@ -160,24 +160,24 @@ export const services: Service[] = [
     number: "04",
     title: "Web3 Development",
     description:
-      "Build decentralized applications, blockchain integrations, wallet experiences, reputation systems and Web3 infrastructure.",
+      "Smart contracts, wallet integrations, and on-chain systems. I've shipped dApps on Solana and Sui with real transactions flowing through them.",
     tags: ["Solana", "Sui / Move", "Rust", "Wallets"],
     icon: "blocks",
   },
   {
     number: "05",
-    title: "AI Product Development",
+    title: "AI Integration",
     description:
-      "Build AI-powered applications, intelligent agents, automation systems and AI-driven analytics.",
-    tags: ["LLM APIs", "AI Agents", "Python", "Analytics"],
+      "LLM-powered features and AI agents that solve specific problems. I build practical AI tools, not demos—things like smart analytics and automated workflows.",
+    tags: ["LLM APIs", "AI Agents", "Python", "Automation"],
     icon: "sparkles",
   },
   {
     number: "06",
     title: "Technical Leadership",
     description:
-      "Help startups and teams with architecture, technical strategy, engineering decisions, MVP development and product delivery.",
-    tags: ["Architecture", "Strategy", "MVP", "Delivery"],
+      "Architecture decisions, stack selection, and MVP development. I help teams ship faster by making clear technical choices early.",
+    tags: ["Architecture", "Strategy", "MVP", "Mentoring"],
     icon: "compass",
   },
 ];

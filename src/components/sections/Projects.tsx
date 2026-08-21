@@ -20,20 +20,20 @@ export function Projects() {
         <SectionHeading
           eyebrow="Projects"
           title="Selected work"
-          description="Real repositories and shipped products across Web3, AI, SaaS and full-stack engineering."
+          description="Real repositories with actual code and live deployments. No mockups."
           action={
             <a
               href={person.github}
               target="_blank"
               rel="noreferrer noopener"
-              className="inline-flex h-11 items-center gap-2 rounded-md border border-border-strong bg-surface px-4 text-sm font-medium transition-colors hover:bg-surface-raised"
+              className="group inline-flex h-11 items-center gap-2 rounded-lg border border-border-strong bg-surface px-4 text-sm font-medium transition-all hover:bg-surface-raised hover:shadow-sm"
             >
               <Github className="h-4 w-4" aria-hidden="true" /> All repositories
             </a>
           }
         />
 
-        <div className="mt-8 flex flex-wrap gap-2" role="tablist" aria-label="Filter projects">
+        <div className="mt-10 flex flex-wrap gap-2.5" role="tablist" aria-label="Filter projects">
           {categories.map((category) => (
             <button
               key={category}
@@ -41,10 +41,10 @@ export function Projects() {
               role="tab"
               aria-selected={active === category}
               onClick={() => setActive(category)}
-              className={`rounded-md border px-3.5 py-2 font-mono text-[11px] tracking-[0.12em] uppercase transition-colors ${
+              className={`rounded-lg border px-4 py-2.5 font-mono text-[11px] tracking-[0.12em] uppercase transition-all active:scale-95 ${
                 active === category
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-surface text-muted-foreground hover:text-foreground"
+                  ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                  : "border-border bg-surface text-muted-foreground hover:text-foreground hover:border-border-strong"
               }`}
             >
               {category}
@@ -52,11 +52,11 @@ export function Projects() {
           ))}
         </div>
 
-        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visible.map((project, i) => (
             <Reveal as="li" key={project.repo} delay={(i % 3) * 0.05}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors hover:border-border-strong">
-                <div className="aspect-[16/10] w-full overflow-hidden border-b border-border">
+              <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all hover:border-border-strong hover:shadow-lg">
+                <div className="aspect-[16/10] w-full overflow-hidden border-b border-border bg-surface-raised">
                   {project.thumbnail ? (
                     <img
                       src={project.thumbnail}
@@ -64,34 +64,34 @@ export function Projects() {
                       loading="lazy"
                       width={800}
                       height={500}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
                     <ProjectCover project={project} />
                   )}
                 </div>
 
-                <div className="flex flex-1 flex-col p-5">
+                <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-base font-semibold">{project.name}</h3>
+                    <h3 className="text-lg font-semibold">{project.name}</h3>
                     <span className="eyebrow shrink-0 text-primary">{project.category}</span>
                   </div>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
                     {project.description}
                   </p>
 
-                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                  <ul className="mt-5 flex flex-wrap gap-1.5">
                     {project.technologies.slice(0, 4).map((tech) => (
                       <li
                         key={tech}
-                        className="rounded border border-border px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                        className="rounded-md border border-border bg-background px-2.5 py-1 font-mono text-[10px] text-muted-foreground"
                       >
                         {tech}
                       </li>
                     ))}
                   </ul>
 
-                  <div className="mt-5 flex items-center gap-4 border-t border-border pt-4">
+                  <div className="mt-5 flex items-center gap-5 border-t border-border pt-5">
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -106,9 +106,10 @@ export function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="inline-flex items-center gap-1.5 text-xs font-medium text-primary transition-opacity hover:opacity-80"
+                        className="group/link inline-flex items-center gap-1.5 text-xs font-medium text-primary transition-opacity hover:opacity-80"
                       >
-                        Live <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                        Live
+                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
                         <span className="sr-only"> demo of {project.name}</span>
                       </a>
                     ) : null}
