@@ -10,6 +10,47 @@ import { SectionHeading } from "../SectionHeading";
 const fieldClass =
   "h-11 w-full rounded-md border border-input bg-background px-3 text-sm outline-none transition-colors focus:border-primary";
 
+type Enquiry = {
+  name: string;
+  email: string;
+  company: string;
+  projectType: string;
+  budget: string;
+  message: string;
+  website: string;
+};
+
+function readForm(form: HTMLFormElement): Enquiry {
+  const data = new FormData(form);
+  const get = (key: string) => String(data.get(key) ?? "").trim();
+  return {
+    name: get("name"),
+    email: get("email"),
+    company: get("company"),
+    projectType: get("projectType"),
+    budget: get("budget"),
+    message: get("message"),
+    website: get("website"),
+  };
+}
+
+function whatsappLink(enquiry: Enquiry) {
+  const lines = [
+    "New project enquiry from your portfolio",
+    "",
+    `Name: ${enquiry.name || "—"}`,
+    `Email: ${enquiry.email || "—"}`,
+    enquiry.company ? `Company: ${enquiry.company}` : "",
+    enquiry.projectType ? `Project type: ${enquiry.projectType}` : "",
+    enquiry.budget ? `Budget: ${enquiry.budget}` : "",
+    "",
+    "Project details:",
+    enquiry.message || "—",
+  ].filter(Boolean);
+
+  return `https://wa.me/${person.phoneRaw.replace(/\D/g, "")}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
+
 export function Contact() {
   const submit = useServerFn(submitContact);
 
@@ -19,19 +60,21 @@ export function Contact() {
     onError: () => toast.error("Could not send your message. Please check the fields."),
   });
 
+  const onWhatsApp = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const form = event.currentTarget.form;
+    if (!form) return;
+    if (!form.reportValidity()) return;
+    const enquiry = readForm(form);
+    window.open(whatsappLink(enquiry), "_blank", "noopener,noreferrer");
+    // Keep a copy in the inbox too.
+    mutation.mutate({ ...enquiry });
+    form.reset();
+  };
+
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.currentTarget;
-    const data = new FormData(form);
-    mutation.mutate({
-      name: String(data.get("name") ?? ""),
-      email: String(data.get("email") ?? ""),
-      company: String(data.get("company") ?? ""),
-      projectType: String(data.get("projectType") ?? ""),
-      budget: String(data.get("budget") ?? ""),
-      message: String(data.get("message") ?? ""),
-      website: String(data.get("website") ?? ""),
-    });
+    mutation.mutate({ ...readForm(form) });
     form.reset();
   };
 
