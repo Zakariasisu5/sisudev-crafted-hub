@@ -49,8 +49,7 @@ export function Testimonials() {
     onError: () => toast.error("Could not submit your testimonial. Please check the fields."),
   });
 
-  const items: Testimonial[] =
-    approved.length > 0 ? approved : (testimonialPlaceholders as Testimonial[]);
+  const items: Testimonial[] = approved;
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
