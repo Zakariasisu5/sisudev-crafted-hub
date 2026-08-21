@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { submitTestimonial } from "@/lib/portfolio.functions";
-import { testimonialPlaceholders, type Testimonial } from "@/data/site";
+import { type Testimonial } from "@/data/site";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
 
