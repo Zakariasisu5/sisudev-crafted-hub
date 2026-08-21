@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { submitTestimonial } from "@/lib/portfolio.functions";
-import { testimonialPlaceholders, type Testimonial } from "@/data/site";
+import { type Testimonial } from "@/data/site";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
 
@@ -49,8 +49,7 @@ export function Testimonials() {
     onError: () => toast.error("Could not submit your testimonial. Please check the fields."),
   });
 
-  const items: Testimonial[] =
-    approved.length > 0 ? approved : (testimonialPlaceholders as Testimonial[]);
+  const items: Testimonial[] = approved;
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -85,28 +84,32 @@ export function Testimonials() {
           }
         />
 
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {items.map((item, i) => (
-            <Reveal as="li" key={`${item.name}-${i}`} delay={(i % 3) * 0.05}>
-              <figure
-                className={`flex h-full flex-col rounded-xl border border-border bg-surface p-6 ${
-                  item.placeholder ? "opacity-60" : ""
-                }`}
-              >
-                <Quote className="h-5 w-5 text-primary" aria-hidden="true" />
-                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-                  {item.quote}
-                </blockquote>
-                <figcaption className="mt-5 border-t border-border pt-4">
-                  <p className="text-sm font-medium">{item.name}</p>
-                  <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">
-                    {[item.role, item.company].filter(Boolean).join(" · ")}
-                  </p>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </ul>
+        {items.length > 0 ? (
+          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((item, i) => (
+              <Reveal as="li" key={`${item.name}-${i}`} delay={(i % 3) * 0.05}>
+                <figure className="flex h-full flex-col rounded-xl border border-border bg-surface p-6">
+                  <Quote className="h-5 w-5 text-primary" aria-hidden="true" />
+                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                    {item.quote}
+                  </blockquote>
+                  <figcaption className="mt-5 border-t border-border pt-4">
+                    <p className="text-sm font-medium">{item.name}</p>
+                    <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">
+                      {[item.role, item.company].filter(Boolean).join(" · ")}
+                    </p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </ul>
+        ) : (
+          <div className="mt-12 rounded-xl border border-dashed border-border bg-surface p-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              No published testimonials yet. If we've worked together, your words are welcome here.
+            </p>
+          </div>
+        )}
 
         {open ? (
           <form
