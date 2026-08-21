@@ -267,23 +267,7 @@ export type Testimonial = {
   quote: string;
   profileUrl?: string;
   avatarUrl?: string;
-  placeholder?: boolean;
 };
-
-/**
- * Placeholders on purpose — no words are attributed to anyone who has not
- * given them. Approved submissions from the testimonial form appear alongside.
- */
-export const testimonialPlaceholders: Testimonial[] = Array.from(
-  { length: 5 },
-  () => ({
-    name: "Your name here",
-    role: "Job title",
-    company: "Company",
-    quote: "Add a verified client or teammate testimonial here.",
-    placeholder: true,
-  }),
-);
 
 export const navLinks = [
   { label: "Home", href: "#home" },
