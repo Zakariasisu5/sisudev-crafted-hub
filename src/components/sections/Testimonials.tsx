@@ -10,7 +10,7 @@ import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
 
 const inputClass =
-  "h-11 w-full rounded-md border border-input bg-background px-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/70 focus:border-primary";
+  "h-11 w-full rounded-lg border border-input bg-background px-3.5 text-sm outline-none transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/20";
 
 async function fetchApproved(): Promise<Testimonial[]> {
   const { data, error } = await supabase
@@ -71,31 +71,31 @@ export function Testimonials() {
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <SectionHeading
           eyebrow="Testimonials"
-          title="Words from people I've built with"
-          description="Only verified, consented submissions are published here."
+          title="What people say"
+          description="Verified testimonials from clients and collaborators."
           action={
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}
-              className="inline-flex h-11 items-center rounded-md border border-border-strong bg-surface px-4 text-sm font-medium transition-colors hover:bg-surface-raised"
+              className="group inline-flex h-11 items-center rounded-lg border border-border-strong bg-surface px-4 text-sm font-medium transition-all hover:bg-surface-raised hover:shadow-sm"
             >
-              {open ? "Close form" : "Add a testimonial"}
+              {open ? "Close form" : "Add testimonial"}
             </button>
           }
         />
 
         {items.length > 0 ? (
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {items.map((item, i) => (
               <Reveal as="li" key={`${item.name}-${i}`} delay={(i % 3) * 0.05}>
-                <figure className="flex h-full flex-col rounded-xl border border-border bg-surface p-6">
-                  <Quote className="h-5 w-5 text-primary" aria-hidden="true" />
-                  <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                <figure className="flex h-full flex-col rounded-xl border border-border bg-surface p-7 transition-all hover:border-border-strong hover:shadow-sm">
+                  <Quote className="h-5 w-5 text-primary/60" aria-hidden="true" />
+                  <blockquote className="mt-5 flex-1 text-[0.9375rem] leading-relaxed text-muted-foreground">
                     {item.quote}
                   </blockquote>
-                  <figcaption className="mt-5 border-t border-border pt-4">
+                  <figcaption className="mt-6 border-t border-border pt-5">
                     <p className="text-sm font-medium">{item.name}</p>
-                    <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">
+                    <p className="mt-1 font-mono text-[11px] text-muted-foreground">
                       {[item.role, item.company].filter(Boolean).join(" · ")}
                     </p>
                   </figcaption>
@@ -104,9 +104,9 @@ export function Testimonials() {
             ))}
           </ul>
         ) : (
-          <div className="mt-12 rounded-xl border border-dashed border-border bg-surface p-8 text-center">
+          <div className="mt-14 rounded-xl border border-dashed border-border bg-surface/50 p-12 text-center">
             <p className="text-sm text-muted-foreground">
-              No published testimonials yet. If we've worked together, your words are welcome here.
+              Testimonials are currently being collected. If we've worked together, feel free to submit one.
             </p>
           </div>
         )}
@@ -114,28 +114,28 @@ export function Testimonials() {
         {open ? (
           <form
             onSubmit={onSubmit}
-            className="mt-8 grid gap-4 rounded-xl border border-border bg-surface p-6 md:grid-cols-2 md:p-8"
+            className="mt-10 grid gap-5 rounded-xl border border-border bg-surface p-7 md:grid-cols-2 md:p-9"
           >
             <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
             <div>
               <label className="eyebrow" htmlFor="t-name">Name</label>
-              <input id="t-name" name="name" required className={`${inputClass} mt-2`} />
+              <input id="t-name" name="name" required className={`${inputClass} mt-2.5`} />
             </div>
             <div>
               <label className="eyebrow" htmlFor="t-email">Email</label>
-              <input id="t-email" name="email" type="email" required className={`${inputClass} mt-2`} />
+              <input id="t-email" name="email" type="email" required className={`${inputClass} mt-2.5`} />
             </div>
             <div>
               <label className="eyebrow" htmlFor="t-job">Job title</label>
-              <input id="t-job" name="jobTitle" className={`${inputClass} mt-2`} />
+              <input id="t-job" name="jobTitle" className={`${inputClass} mt-2.5`} />
             </div>
             <div>
               <label className="eyebrow" htmlFor="t-company">Company</label>
-              <input id="t-company" name="company" className={`${inputClass} mt-2`} />
+              <input id="t-company" name="company" className={`${inputClass} mt-2.5`} />
             </div>
             <div className="md:col-span-2">
               <label className="eyebrow" htmlFor="t-profile">Profile URL (optional)</label>
-              <input id="t-profile" name="profileUrl" type="url" className={`${inputClass} mt-2`} />
+              <input id="t-profile" name="profileUrl" type="url" className={`${inputClass} mt-2.5`} />
             </div>
             <div className="md:col-span-2">
               <label className="eyebrow" htmlFor="t-text">Testimonial</label>
@@ -145,18 +145,18 @@ export function Testimonials() {
                 required
                 rows={5}
                 minLength={20}
-                className="mt-2 w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm outline-none transition-colors focus:border-primary"
+                className="mt-2.5 w-full rounded-lg border border-input bg-background px-3.5 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
             </div>
             <label className="flex items-start gap-3 text-sm text-muted-foreground md:col-span-2">
-              <input type="checkbox" name="consent" required className="mt-1 h-4 w-4 accent-[var(--color-primary)]" />
+              <input type="checkbox" name="consent" required className="mt-1 h-4 w-4 rounded accent-[var(--color-primary)]" />
               I consent to this testimonial being published on this website.
             </label>
             <div className="md:col-span-2">
               <button
                 type="submit"
                 disabled={mutation.isPending}
-                className="inline-flex h-11 items-center rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
+                className="inline-flex h-12 items-center rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-all hover:opacity-90 hover:shadow-md active:scale-[0.98] disabled:opacity-60 disabled:pointer-events-none"
               >
                 {mutation.isPending ? "Submitting…" : "Submit testimonial"}
               </button>
