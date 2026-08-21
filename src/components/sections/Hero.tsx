@@ -90,7 +90,7 @@ export function Hero() {
         >
           <div className="shadow-elevated relative w-full max-w-sm overflow-hidden rounded-xl border border-border bg-surface">
             <img
-              src={portraitAsset.url}
+              src={portrait}
               alt="Zakaria Sisu — Software Developer, Web3 & AI Specialist, Founder"
               width={768}
               height={1024}
