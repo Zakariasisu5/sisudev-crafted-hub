@@ -1,6 +1,6 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import portraitAsset from "@/assets/zakaria-portrait.jpg.asset.json";
+import portrait from "@/assets/zakaria-portrait.jpg";
 import { availability, hero, person, stats } from "@/data/site";
 
 
