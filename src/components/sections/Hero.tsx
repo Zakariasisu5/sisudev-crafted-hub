@@ -1,7 +1,8 @@
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import heroVisual from "@/assets/hero-visual.jpg";
+import portraitAsset from "@/assets/zakaria-portrait.jpg.asset.json";
 import { availability, hero, person, stats } from "@/data/site";
+
 
 export function Hero() {
   const reduced = useReducedMotion();
@@ -85,15 +86,15 @@ export function Hero() {
           initial={reduced ? false : { opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative"
+          className="relative flex justify-center lg:justify-end"
         >
-          <div className="shadow-elevated relative overflow-hidden rounded-xl border border-border bg-surface">
+          <div className="shadow-elevated relative w-full max-w-sm overflow-hidden rounded-xl border border-border bg-surface">
             <img
-              src={heroVisual}
-              alt="Abstract technical composition representing software architecture, on-chain data and AI systems"
-              width={1024}
+              src={portraitAsset.url}
+              alt="Zakaria Sisu — Software Developer, Web3 & AI Specialist, Founder"
+              width={768}
               height={1024}
-              className="aspect-square w-full object-cover"
+              className="aspect-[3/4] w-full object-cover object-top"
               loading="eager"
             />
             <div className="absolute inset-x-0 bottom-0 flex items-center justify-between gap-3 border-t border-border bg-background/70 px-4 py-3 backdrop-blur-md">
@@ -104,6 +105,7 @@ export function Hero() {
             </div>
           </div>
         </motion.div>
+
       </div>
 
       <div className="relative mx-auto mt-14 max-w-6xl px-5 lg:px-8">
