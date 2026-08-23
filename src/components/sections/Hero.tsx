@@ -9,7 +9,6 @@ export function Hero() {
 
   return (
     <section id="home" className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-      <div className="bg-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)]" />
       <div className="relative mx-auto grid max-w-6xl gap-16 px-5 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-20 lg:px-8">
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 20 }}
