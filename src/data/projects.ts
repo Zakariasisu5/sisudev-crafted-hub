@@ -5,13 +5,10 @@ import thumbBillify from "@/assets/thumb-billify.jpg";
 import thumbFarm from "@/assets/thumb-farm.jpg";
 import thumbSentinel from "@/assets/thumb-sentinel.jpg";
 import thumbBizlaunch from "@/assets/thumb-bizlaunch360.jpg";
-import thumbWeb3thrive from "@/assets/thumb-web3thriveai.jpg";
-import thumbVoiceChain from "@/assets/thumb-voicechainpay.jpg";
-import thumbGlobepay from "@/assets/thumb-globepayx.jpg";
+import thumbFitmind from "@/assets/thumb-fitmind.jpg";
 import thumbBiologic from "@/assets/thumb-biologicchain.jpg";
 import thumbPulsepay from "@/assets/thumb-pulsepay.jpg";
 import thumbAiAgent from "@/assets/thumb-aiagent.jpg";
-import thumbMicrofarmly from "@/assets/thumb-microfarmly.jpg";
 import thumbAttendly from "@/assets/thumb-attendly.jpg";
 import thumbGreenpulse from "@/assets/thumb-greenpulse.jpg";
 import thumbEco from "@/assets/thumb-ecocompanion.jpg";
@@ -20,7 +17,6 @@ import thumbGpa from "@/assets/thumb-gpa.jpg";
 import thumbStudents from "@/assets/thumb-studentdirectory.jpg";
 import thumbDocker from "@/assets/thumb-docker.jpg";
 import thumbFixphone from "@/assets/thumb-fixphone.jpg";
-
 
 export const categories = [
   "All",
@@ -57,20 +53,37 @@ export type Project = {
  */
 export const projects: Project[] = [
   {
-    repo: "Cred-Layer",
-    name: "CredLayer",
+    repo: "Credlayer",
+    name: "Credlayer",
     description:
-      "Decentralized reputation protocol on Solana — wallet trust scores, AI risk intelligence, and behavioral analytics for autonomous finance.",
+      "AI-powered reputation and verification infrastructure for Web3.",
     category: "Web3",
-    technologies: ["TypeScript", "React", "Solana", "Rust", "Web3"],
-    githubUrl: "https://github.com/Zakariasisu5/Cred-Layer",
-    liveUrl: "https://cred-layer-pi.vercel.app",
+    technologies: ["TypeScript", "Next.js", "Solana", "Python", "FastAPI", "Tailwind CSS"],
+    githubUrl: "https://github.com/Zakariasisu5/Credlayer",
+    liveUrl: "https://credlayer1.vercel.app",
     thumbnail: thumbCredlayer,
     featured: 1,
     highlights: [
-      "Wallet-level trust scoring on Solana",
-      "AI risk intelligence over on-chain behaviour",
-      "Behavioural analytics for autonomous finance agents",
+      "AI reputation and verification scoring",
+      "Solana attestation infrastructure",
+      "FastAPI backend with Web3 dApp frontend",
+    ],
+  },
+  {
+    repo: "ai-fitmind-care-61089",
+    name: "AI FitMind Care",
+    description:
+      "A comprehensive AI-powered health companion that helps users monitor, track, and improve their physical and mental well-being through voice logging.",
+    category: "AI",
+    technologies: ["TypeScript", "JavaScript", "Supabase", "Tailwind CSS"],
+    githubUrl: "https://github.com/Zakariasisu5/ai-fitmind-care-61089",
+    liveUrl: "https://ai-fitmind-care.vercel.app",
+    thumbnail: thumbFitmind,
+    featured: 2,
+    highlights: [
+      "Voice logging for health tracking",
+      "Physical and mental well-being monitoring",
+      "Supabase-backed data persistence",
     ],
   },
   {
@@ -83,7 +96,7 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Zakariasisu5/Mooncreditfi-sui-move",
     liveUrl: "https://mooncreditfi-sui.vercel.app",
     thumbnail: thumbMooncreditfi,
-    featured: 2,
+    featured: 3,
     highlights: [
       "On-chain credit profiles",
       "Lending and borrowing flows",
@@ -100,7 +113,6 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Zakariasisu5/nexus-connect",
     liveUrl: "https://www.confnect.site",
     thumbnail: thumbConfnect,
-    featured: 3,
     highlights: [
       "Meeting scheduling and messaging",
       "Profile management",
@@ -166,39 +178,6 @@ export const projects: Project[] = [
     thumbnail: thumbBizlaunch,
   },
   {
-    repo: "web3thriveai",
-    name: "Web3ThriveAI",
-    description:
-      "A freelance platform for Africa-based freelancers combining Web3 and AI, including AI-powered skill assessments with NFT certifications.",
-    category: "Web3",
-    technologies: ["TypeScript", "Blockchain", "AI", "NFT"],
-    githubUrl: "https://github.com/Zakariasisu5/web3thriveai",
-    liveUrl: "https://web3thriveai.vercel.app",
-    thumbnail: thumbWeb3thrive,
-  },
-  {
-    repo: "voice-chain-pay",
-    name: "VoiceChainPay",
-    description:
-      "AI-powered cross-chain payroll for DAOs and remote teams — multi-chain payouts, voice-enabled approvals and real-time treasury management built on ZetaChain.",
-    category: "Web3",
-    technologies: ["TypeScript", "ZetaChain", "AI", "Web3"],
-    githubUrl: "https://github.com/Zakariasisu5/voice-chain-pay",
-    liveUrl: "https://payroll-psi-flax.vercel.app",
-    thumbnail: thumbVoiceChain,
-  },
-  {
-    repo: "aptos-orbit",
-    name: "GlobePayX",
-    description:
-      "A decentralized Web3 platform for sending money, swapping currencies, managing payroll and tracking treasury balances, powered by Aptos smart contracts.",
-    category: "Web3",
-    technologies: ["TypeScript", "Aptos", "Move", "dApp"],
-    githubUrl: "https://github.com/Zakariasisu5/aptos-orbit",
-    liveUrl: "https://globepay.vercel.app",
-    thumbnail: thumbGlobepay,
-  },
-  {
     repo: "Biological-Chain-Project",
     name: "BioLogic Chain",
     description:
@@ -229,17 +208,6 @@ export const projects: Project[] = [
     technologies: ["Python", "Machine Learning", "LLM"],
     githubUrl: "https://github.com/Zakariasisu5/AI-AGENT",
     thumbnail: thumbAiAgent,
-  },
-  {
-    repo: "microfarmly-grow-together",
-    name: "MicroFarmly",
-    description:
-      "An AI-powered hyperlocal farming and food subscription platform for cafes, coworking spaces and urban communities using vertical farming kiosks.",
-    category: "SaaS",
-    technologies: ["TypeScript", "React", "AI"],
-    githubUrl: "https://github.com/Zakariasisu5/microfarmly-grow-together",
-    liveUrl: "https://microfarmly-grow-together.vercel.app",
-    thumbnail: thumbMicrofarmly,
   },
   {
     repo: "school-connect",
