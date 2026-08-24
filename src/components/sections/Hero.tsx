@@ -51,6 +51,17 @@ export function Hero() {
             >
               Work with me
             </a>
+            {person.cvUrl && (
+              <a
+                href={person.cvUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                download
+                className="inline-flex h-12 items-center rounded-lg border border-border-strong bg-surface px-6 text-sm font-medium transition-all hover:bg-surface-raised hover:border-border-strong active:scale-[0.98]"
+              >
+                Download Resume
+              </a>
+            )}
           </div>
 
           <div className="mt-8 flex items-center gap-3">

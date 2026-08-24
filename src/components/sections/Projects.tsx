@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { ArrowUpRight, Github } from "lucide-react";
-import { categories, projects, type Category } from "@/data/projects";
+import { ArrowUpRight, Github, ChevronDown, ChevronUp } from "lucide-react";
+import { categories, projects, featuredProjects, type Category } from "@/data/projects";
 import { person } from "@/data/site";
 import { ProjectCover } from "../ProjectCover";
 import { Reveal } from "../Reveal";
@@ -8,9 +8,20 @@ import { SectionHeading } from "../SectionHeading";
 
 export function Projects() {
   const [active, setActive] = useState<Category>("All");
+  const [showAll, setShowAll] = useState(false);
 
-  const visible = useMemo(
-    () => (active === "All" ? projects : projects.filter((p) => p.category === active)),
+  const otherProjects = useMemo(
+    () => projects.filter((p) => !p.featured),
+    [],
+  );
+
+  const visibleFeatured = useMemo(
+    () => (active === "All" ? featuredProjects : featuredProjects.filter((p) => p.category === active)),
+    [active],
+  );
+
+  const visibleOther = useMemo(
+    () => (active === "All" ? otherProjects : otherProjects.filter((p) => p.category === active)),
     [active],
   );
 
@@ -52,73 +63,221 @@ export function Projects() {
           ))}
         </div>
 
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {visible.map((project, i) => (
-            <Reveal as="li" key={project.repo} delay={(i % 3) * 0.05}>
-              <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all hover:border-border-strong hover:shadow-lg">
-                <div className="aspect-[16/10] w-full overflow-hidden border-b border-border bg-surface-raised">
-                  {project.thumbnail ? (
-                    <img
-                      src={project.thumbnail}
-                      alt={`${project.name} project cover`}
-                      loading="lazy"
-                      width={800}
-                      height={500}
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  ) : (
-                    <ProjectCover project={project} />
-                  )}
-                </div>
+        {/* Featured Projects */}
+        {visibleFeatured.length > 0 && (
+          <>
+            <h3 className="mt-12 mb-6 font-display text-xl font-semibold">Featured</h3>
+            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+              {visibleFeatured.map((project, i) => (
+                <Reveal as="li" key={project.repo} delay={(i % 2) * 0.05}>
+                  <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all hover:border-border-strong hover:shadow-lg">
+                    <div className="aspect-[16/10] w-full overflow-hidden border-b border-border bg-surface-raised">
+                      {project.thumbnail ? (
+                        <img
+                          src={project.thumbnail}
+                          alt={`${project.name} project cover`}
+                          loading="lazy"
+                          width={800}
+                          height={500}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <ProjectCover project={project} />
+                      )}
+                    </div>
 
-                <div className="flex flex-1 flex-col p-6">
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-semibold">{project.name}</h3>
-                    <span className="eyebrow shrink-0 text-primary">{project.category}</span>
-                  </div>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
-                    {project.description}
-                  </p>
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="flex items-center justify-between gap-3">
+                        <h3 className="text-lg font-semibold">{project.name}</h3>
+                        <span className="eyebrow shrink-0 text-primary">{project.category}</span>
+                      </div>
+                      <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                        {project.description}
+                      </p>
 
-                  <ul className="mt-5 flex flex-wrap gap-1.5">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <li
-                        key={tech}
-                        className="rounded-md border border-border bg-background px-2.5 py-1 font-mono text-[10px] text-muted-foreground"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
+                      <ul className="mt-5 flex flex-wrap gap-1.5">
+                        {project.technologies.slice(0, 4).map((tech) => (
+                          <li
+                            key={tech}
+                            className="rounded-md border border-border bg-background px-2.5 py-1 font-mono text-[10px] text-muted-foreground"
+                          >
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
 
-                  <div className="mt-5 flex items-center gap-5 border-t border-border pt-5">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      <Github className="h-3.5 w-3.5" aria-hidden="true" /> Code
-                      <span className="sr-only"> for {project.name}</span>
-                    </a>
-                    {project.liveUrl ? (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="group/link inline-flex items-center gap-1.5 text-xs font-medium text-primary transition-opacity hover:opacity-80"
-                      >
-                        Live
-                        <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
-                        <span className="sr-only"> demo of {project.name}</span>
-                      </a>
-                    ) : null}
-                  </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </ul>
+                      <div className="mt-5 flex items-center gap-5 border-t border-border pt-5">
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                        >
+                          <Github className="h-3.5 w-3.5" aria-hidden="true" /> Code
+                          <span className="sr-only"> for {project.name}</span>
+                        </a>
+                        {project.liveUrl ? (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="group/link inline-flex items-center gap-1.5 text-xs font-medium text-primary transition-opacity hover:opacity-80"
+                          >
+                            Live
+                            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
+                            <span className="sr-only"> demo of {project.name}</span>
+                          </a>
+                        ) : null}
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {/* More Projects */}
+        {visibleOther.length > 0 && (
+          <>
+            <div className="mt-12 flex items-center justify-between">
+              <h3 className="font-display text-xl font-semibold">More Projects</h3>
+              <button
+                type="button"
+                onClick={() => setShowAll(!showAll)}
+                className="inline-flex items-center gap-2 text-sm text-primary transition-opacity hover:opacity-80"
+              >
+                {showAll ? (
+                  <>
+                    Show less <ChevronUp className="h-4 w-4" />
+                  </>
+                ) : (
+                  <>
+                    Show all ({visibleOther.length}) <ChevronDown className="h-4 w-4" />
+                  </>
+                )}
+              </button>
+            </div>
+
+            {showAll ? (
+              <ul className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {visibleOther.map((project, i) => (
+                  <Reveal as="li" key={project.repo} delay={(i % 3) * 0.05}>
+                    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all hover:border-border-strong hover:shadow-lg">
+                      <div className="aspect-[16/10] w-full overflow-hidden border-b border-border bg-surface-raised">
+                        {project.thumbnail ? (
+                          <img
+                            src={project.thumbnail}
+                            alt={`${project.name} project cover`}
+                            loading="lazy"
+                            width={800}
+                            height={500}
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
+                        ) : (
+                          <ProjectCover project={project} />
+                        )}
+                      </div>
+
+                      <div className="flex flex-1 flex-col p-6">
+                        <div className="flex items-center justify-between gap-3">
+                          <h3 className="text-lg font-semibold">{project.name}</h3>
+                          <span className="eyebrow shrink-0 text-primary">{project.category}</span>
+                        </div>
+                        <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
+                          {project.description}
+                        </p>
+
+                        <ul className="mt-5 flex flex-wrap gap-1.5">
+                          {project.technologies.slice(0, 4).map((tech) => (
+                            <li
+                              key={tech}
+                              className="rounded-md border border-border bg-background px-2.5 py-1 font-mono text-[10px] text-muted-foreground"
+                            >
+                              {tech}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="mt-5 flex items-center gap-5 border-t border-border pt-5">
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground"
+                          >
+                            <Github className="h-3.5 w-3.5" aria-hidden="true" /> Code
+                            <span className="sr-only"> for {project.name}</span>
+                          </a>
+                          {project.liveUrl ? (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noreferrer noopener"
+                              className="group/link inline-flex items-center gap-1.5 text-xs font-medium text-primary transition-opacity hover:opacity-80"
+                            >
+                              Live
+                              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
+                              <span className="sr-only"> demo of {project.name}</span>
+                            </a>
+                          ) : null}
+                        </div>
+                      </div>
+                    </article>
+                  </Reveal>
+                ))}
+              </ul>
+            ) : (
+              <ul className="mt-6 divide-y divide-border rounded-xl border border-border bg-surface">
+                {visibleOther.slice(0, 6).map((project) => (
+                  <li key={project.repo} className="p-5 transition-colors hover:bg-surface-raised">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <h4 className="font-semibold">{project.name}</h4>
+                          <span className="eyebrow text-primary">{project.category}</span>
+                        </div>
+                        <p className="mt-2 text-sm text-muted-foreground">{project.description}</p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {project.technologies.slice(0, 3).map((tech) => (
+                            <span
+                              key={tech}
+                              className="rounded border border-border bg-background px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex shrink-0 items-center gap-3">
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                          className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:text-foreground hover:border-border-strong"
+                          aria-label={`View ${project.name} on GitHub`}
+                        >
+                          <Github className="h-4 w-4" />
+                        </a>
+                        {project.liveUrl ? (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-primary transition-opacity hover:opacity-80"
+                            aria-label={`View ${project.name} live`}
+                          >
+                            <ArrowUpRight className="h-4 w-4" />
+                          </a>
+                        ) : null}
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </>
+        )}
       </div>
     </section>
   );

@@ -45,7 +45,7 @@ export type Project = {
   githubUrl: string;
   liveUrl?: string;
   thumbnail?: string;
-  featured?: 1 | 2 | 3;
+  featured?: 1 | 2 | 3 | 4;
   /** Extra context written only from what the repository itself states. */
   highlights?: string[];
 };
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     repo: "Cred-Layer",
     name: "CredLayer",
     description:
-      "Decentralized reputation protocol on Solana — wallet trust scores, AI risk intelligence, and behavioral analytics for autonomous finance.",
+      "Scores Web3 wallet trust using on-chain transaction history—built the AI scoring engine and Solana smart contracts for reputation verification.",
     category: "Web3",
     technologies: ["TypeScript", "React", "Solana", "Rust", "Web3"],
     githubUrl: "https://github.com/Zakariasisu5/Cred-Layer",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     repo: "Mooncreditfi-sui-move",
     name: "MoonCreditFi",
     description:
-      "Decentralized credit & DePIN funding platform. Borrow, lend, and fund real-world infrastructure projects ethically using on-chain credit profiles and transparent smart contracts.",
+      "DeFi lending protocol on Sui blockchain—enables gasless borrowing and DePIN project funding with on-chain credit scoring in Move smart contracts.",
     category: "Web3",
     technologies: ["Move", "Sui", "TypeScript", "Smart Contracts"],
     githubUrl: "https://github.com/Zakariasisu5/Mooncreditfi-sui-move",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     repo: "nexus-connect",
     name: "Confnect",
     description:
-      "An AI-powered networking platform that helps users connect, schedule meetings, chat, and manage profiles, with insights and support.",
+      "AI networking platform for conference attendees—built real-time chat, scheduling, and an LLM-powered recommendation engine for optimal connections.",
     category: "AI",
     technologies: ["TypeScript", "React", "AI APIs", "Realtime Chat"],
     githubUrl: "https://github.com/Zakariasisu5/nexus-connect",
@@ -105,6 +105,23 @@ export const projects: Project[] = [
       "Meeting scheduling and messaging",
       "Profile management",
       "AI-generated networking insights",
+    ],
+  },
+  {
+    repo: "billify-generator-8701",
+    name: "Billify",
+    description:
+      "Invoice generator with multi-currency support—users create, customize, and download professional invoices in 10+ currencies with reusable templates.",
+    category: "SaaS",
+    technologies: ["JavaScript", "React", "TypeScript", "CSS"],
+    githubUrl: "https://github.com/Zakariasisu5/billify-generator-8701",
+    liveUrl: "https://bill-generator-amber.vercel.app",
+    thumbnail: thumbBillify,
+    featured: 4,
+    highlights: [
+      "Multi-currency invoicing",
+      "Reusable invoice templates",
+      "Download-ready documents",
     ],
   },
   {

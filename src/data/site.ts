@@ -39,9 +39,9 @@ export const hero = {
 export const about = {
   title: "Developer, founder, problem solver.",
   paragraphs: [
-    "I write code that solves real problems. Whether it's a React dashboard, a Solana smart contract, or an AI agent—I focus on shipping working solutions, not just prototypes.",
-    "My background spans full-stack development, blockchain infrastructure, and AI integration. I've built payment systems, decentralized applications, and product analytics platforms that people actually use.",
-    "As a founder and CTO, I've learned that great engineering isn't just about clean code—it's about making the right tradeoffs, shipping fast, and iterating based on feedback.",
+    "I build full-stack applications, blockchain protocols, and AI-powered tools. My stack includes React and TypeScript on the frontend, Node.js and Python on the backend, and Rust for smart contracts on Solana and Sui.",
+    "Most of my recent work has been in Web3—building reputation systems like CredLayer and DeFi platforms like MoonCreditFi. I've also shipped AI products like Confnect (networking platform) and Sentinel (intrusion detection), plus several SaaS tools for invoicing, business management, and agriculture.",
+    "I co-founded 8Nova where I lead technical architecture and engineering. Before that, I built products independently and took on freelance work across Web3, AI, and full-stack development.",
   ],
   intro:
     "I'm Zakaria Sisu, a full-stack developer and founder based in Ghana. I build web applications, blockchain systems, and AI-powered tools. My work focuses on practical engineering—choosing the right stack, writing maintainable code, and delivering features that solve real user problems.",
@@ -50,7 +50,7 @@ export const about = {
 export const stats = [
   { value: "4+", label: "Years Experience" },
   { value: "20+", label: "Projects Shipped" },
-  { value: "∞", label: "Coffee Consumed" },
+  { value: "20+", label: "Repos Shipped" },
   { value: "Web3 + AI", label: "Specialties" },
   { value: "Remote", label: "Work Style" },
 ] as const;
@@ -224,8 +224,8 @@ export const experience: ExperienceItem[] = [
   },
   {
     role: "Web3 Developer",
-    organization: "Add organization",
-    period: "Add period",
+    organization: "Independent / Freelance",
+    period: "2022–2024",
     summary:
       "Decentralized applications and on-chain systems across Solana, Sui/Move and EVM ecosystems, including wallet flows and reputation primitives.",
     highlights: [
@@ -236,8 +236,8 @@ export const experience: ExperienceItem[] = [
   },
   {
     role: "AI Builder",
-    organization: "Add organization",
-    period: "Add period",
+    organization: "Independent / Freelance",
+    period: "2023–2024",
     summary:
       "AI-powered applications and agents — LLM integrations, intelligent assistants and analytics layers embedded into real products.",
     highlights: [
@@ -248,8 +248,8 @@ export const experience: ExperienceItem[] = [
   },
   {
     role: "Full-Stack Developer",
-    organization: "Add organization",
-    period: "Add period",
+    organization: "Independent / Freelance",
+    period: "2021–Present",
     summary:
       "Frontend and backend engineering for web products — React interfaces backed by APIs, databases and authentication.",
     highlights: [
@@ -275,7 +275,6 @@ export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
