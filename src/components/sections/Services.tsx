@@ -23,27 +23,27 @@ export function Services() {
           description="From concept to production. Frontend, backend, and everything between."
         />
 
-        <ul className="mt-12 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => {
             const Icon = icons[service.icon] ?? Layers;
             return (
-              <Reveal as="li" key={service.number} delay={(i % 3) * 0.06} className="bg-surface">
-                <div className="group h-full p-7 transition-all hover:bg-surface-raised">
+              <Reveal as="li" key={service.number} delay={(i % 3) * 0.06}>
+                <div className="group h-full rounded-xl border border-border bg-surface p-8 transition-all hover:border-border-strong hover:bg-surface-raised hover:shadow-sm md:p-10">
                   <div className="flex items-center justify-between">
-                    <span className="grid h-11 w-11 place-items-center rounded-lg border border-border bg-background text-primary transition-all group-hover:border-primary/40 group-hover:bg-primary/5">
-                      <Icon className="h-4.5 w-4.5" aria-hidden="true" />
+                    <span className="grid h-12 w-12 place-items-center rounded-lg border border-border bg-background text-primary transition-all group-hover:border-primary/40 group-hover:bg-primary/5">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
                     </span>
                     <span className="font-mono text-xs text-muted-foreground/60">{service.number}</span>
                   </div>
-                  <h3 className="mt-6 text-lg font-semibold">{service.title}</h3>
-                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted-foreground">
+                  <h3 className="mt-8 text-lg font-semibold leading-tight">{service.title}</h3>
+                  <p className="mt-4 text-[0.9375rem] leading-relaxed text-muted-foreground">
                     {service.description}
                   </p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
+                  <ul className="mt-6 flex flex-wrap gap-2">
                     {service.tags.map((tag) => (
                       <li
                         key={tag}
-                        className="rounded-md border border-border bg-background px-2.5 py-1 font-mono text-[10px] text-muted-foreground"
+                        className="rounded-md border border-border bg-background px-3 py-1.5 font-mono text-[10px] text-muted-foreground"
                       >
                         {tag}
                       </li>

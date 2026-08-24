@@ -36,10 +36,13 @@ const testimonialSchema = z.object({
   email: z.string().trim().email().max(200),
   jobTitle: z.string().trim().max(120).optional().or(z.literal("")),
   company: z.string().trim().max(120).optional().or(z.literal("")),
-  profileUrl: z.string().trim().url().max(300).optional().or(z.literal("")),
+  profileUrl: z.string().trim().max(300).optional().or(z.literal("")).refine(
+    (val) => !val || z.string().url().safeParse(val).success,
+    { message: "Must be a valid URL or empty" }
+  ),
   avatarUrl: z.string().trim().url().max(500).optional().or(z.literal("")),
   testimonial: z.string().trim().min(20).max(1200),
-  consent: z.literal(true),
+  consent: z.boolean(),
   website: z.string().max(0).optional().or(z.literal("")),
 });
 

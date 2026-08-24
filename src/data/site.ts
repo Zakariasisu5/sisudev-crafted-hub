@@ -18,7 +18,7 @@ export const person = {
   linkedin: "https://www.linkedin.com/in/zakaria-sisu",
   twitter: "https://x.com/sisu_zakaria",
   /** Point this at a hosted CV file when one is available. */
-  cvUrl: "",
+  cvUrl: "/resume/Zakaria_Sisu_Resume.pdf",
 } as const;
 
 export const availability = {
@@ -275,6 +275,7 @@ export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ] as const;
 

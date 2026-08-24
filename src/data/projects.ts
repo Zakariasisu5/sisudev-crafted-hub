@@ -77,7 +77,7 @@ export const projects: Project[] = [
     category: "AI",
     technologies: ["TypeScript", "JavaScript", "Supabase", "Tailwind CSS"],
     githubUrl: "https://github.com/Zakariasisu5/ai-fitmind-care-61089",
-    liveUrl: "https://ai-fitmind-care.vercel.app",
+    liveUrl: "https://ai-fitmind-care-61089.vercel.app/",
     thumbnail: thumbFitmind,
     featured: 2,
     highlights: [

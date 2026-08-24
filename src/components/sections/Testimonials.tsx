@@ -41,12 +41,24 @@ export function Testimonials() {
   });
 
   const mutation = useMutation({
-    mutationFn: (data: Record<string, unknown>) => submit({ data } as never),
+    mutationFn: async (data: Record<string, unknown>) => {
+      try {
+        return await submit({ data } as never);
+      } catch (error) {
+        console.error("Testimonial submission error:", error);
+        throw error;
+      }
+    },
     onSuccess: () => {
       toast.success("Thank you — your testimonial was submitted for review.");
       setOpen(false);
+      const form = document.querySelector('form');
+      if (form) form.reset();
     },
-    onError: () => toast.error("Could not submit your testimonial. Please check the fields."),
+    onError: (error: Error) => {
+      console.error("Mutation error:", error);
+      toast.error(error.message || "Could not submit your testimonial. Please check the fields.");
+    },
   });
 
   const items: Testimonial[] = approved;
@@ -54,6 +66,11 @@ export function Testimonials() {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
+    
+    // Convert checkbox value to boolean
+    const consentValue = form.get("consent");
+    const isConsented = consentValue === "on" || consentValue === "true";
+    
     mutation.mutate({
       name: String(form.get("name") ?? ""),
       email: String(form.get("email") ?? ""),
@@ -61,7 +78,7 @@ export function Testimonials() {
       company: String(form.get("company") ?? ""),
       profileUrl: String(form.get("profileUrl") ?? ""),
       testimonial: String(form.get("testimonial") ?? ""),
-      consent: form.get("consent") === "on",
+      consent: isConsented,
       website: String(form.get("website") ?? ""),
     });
   };
