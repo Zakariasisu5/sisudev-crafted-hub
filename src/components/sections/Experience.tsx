@@ -1,3 +1,4 @@
+import { GitCommitHorizontal } from "lucide-react";
 import { experience } from "@/data/site";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
@@ -5,39 +6,54 @@ import { SectionHeading } from "../SectionHeading";
 export function Experience() {
   return (
     <section id="experience" className="section-y border-t border-border">
-      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 lg:px-8">
         <SectionHeading
           eyebrow="Experience"
           title="Where I've worked"
           description="CTO, founder, and full-stack engineer roles across startups and independent projects."
         />
 
-        <ol className="mt-14 space-y-5">
+        <ol className="relative mt-8 space-y-4 pl-7 md:pl-9">
+          <span
+            className="absolute top-2 bottom-2 left-[11px] w-px bg-border md:left-[15px]"
+            aria-hidden="true"
+          />
+
           {experience.map((item, i) => (
             <Reveal as="li" key={`${item.role}-${item.organization}`} delay={i * 0.05}>
-              <article className="relative rounded-xl border border-border bg-surface p-7 transition-all hover:border-border-strong hover:shadow-sm md:p-9">
+              <span
+                className={`absolute -translate-x-[27px] md:-translate-x-[35px] mt-5 grid h-6 w-6 place-items-center rounded-full border bg-background ${
+                  item.current ? "border-success text-success" : "border-border text-muted-foreground"
+                }`}
+                aria-hidden="true"
+              >
+                <GitCommitHorizontal className="h-3.5 w-3.5" />
+              </span>
+
+              <article className="gh-card gh-card-hover p-5">
                 <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                  <div>
-                    <h3 className="text-lg font-semibold">
+                  <div className="min-w-0">
+                    <h3 className="text-base font-semibold">
                       {item.role}
-                      <span className="text-muted-foreground"> · {item.organization}</span>
+                      <span className="font-normal text-muted-foreground"> · {item.organization}</span>
                     </h3>
-                    <p className="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-muted-foreground">
+                    <p className="mt-1 font-mono text-[11px] text-muted-foreground">{item.period}</p>
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-foreground">
                       {item.summary}
                     </p>
                   </div>
                   {item.current ? (
-                    <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1.5 font-mono text-[10px] tracking-[0.16em] text-success uppercase shadow-sm">
+                    <span className="inline-flex w-fit shrink-0 items-center gap-1.5 rounded-full border border-success/40 bg-success/10 px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-success uppercase">
                       <span className="h-1.5 w-1.5 rounded-full bg-success" aria-hidden="true" />
                       Current
                     </span>
                   ) : null}
                 </div>
 
-                <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+                <ul className="mt-4 grid gap-2 border-t border-border pt-4 sm:grid-cols-2">
                   {item.highlights.map((highlight) => (
-                    <li key={highlight} className="flex gap-2.5 text-sm text-muted-foreground">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                    <li key={highlight} className="flex gap-2 text-sm text-muted-foreground">
+                      <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                       {highlight}
                     </li>
                   ))}
