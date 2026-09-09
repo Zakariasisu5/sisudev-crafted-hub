@@ -1,3 +1,4 @@
+import { BookOpen, FileCode2 } from "lucide-react";
 import { about, person, stack } from "@/data/site";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
@@ -5,42 +6,68 @@ import { SectionHeading } from "../SectionHeading";
 export function About() {
   return (
     <section id="about" className="section-y border-t border-border">
-      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 lg:px-8">
         <SectionHeading eyebrow="About" title={about.title} />
 
-        <div className="mt-14 grid gap-14 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
-          <div className="space-y-6">
-            {about.paragraphs.map((paragraph, i) => (
-              <Reveal key={paragraph} delay={i * 0.06}>
-                <p className="text-[1.0625rem] leading-relaxed text-muted-foreground">{paragraph}</p>
-              </Reveal>
-            ))}
+        <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-10">
+          {/* README-style document */}
+          <Reveal>
+            <article className="gh-card overflow-hidden">
+              <div className="flex items-center gap-2 border-b border-border bg-surface-raised px-4 py-2.5">
+                <BookOpen className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                <span className="font-mono text-xs text-foreground">README.md</span>
+              </div>
 
-            <Reveal delay={0.2}>
-              <dl className="mt-10 grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2">
-                <div className="bg-surface px-6 py-5 transition-colors hover:bg-surface-raised">
-                  <dt className="eyebrow">Based in</dt>
-                  <dd className="mt-1.5 text-sm font-medium">{person.location}</dd>
-                </div>
-                <div className="bg-surface px-6 py-5 transition-colors hover:bg-surface-raised">
-                  <dt className="eyebrow">Focus</dt>
-                  <dd className="mt-1.5 text-sm font-medium">Full-stack · Web3 · AI</dd>
-                </div>
-              </dl>
-            </Reveal>
-          </div>
+              <div className="p-5 md:p-7">
+                <h3 className="border-b border-border pb-2 text-xl font-semibold">
+                  {about.title}
+                </h3>
 
-          <div id="stack" className="space-y-5">
+                <div className="mt-5 space-y-4">
+                  {about.paragraphs.map((paragraph) => (
+                    <p key={paragraph} className="text-[0.9375rem] leading-7 text-muted-foreground">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+
+                <hr className="my-6 border-border" />
+
+                <div className="rounded-md border-l-4 border-primary bg-surface-raised px-4 py-3">
+                  <p className="text-sm leading-6 text-muted-foreground">{about.intro}</p>
+                </div>
+
+                <dl className="mt-6 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2">
+                  <div className="bg-surface px-4 py-3">
+                    <dt className="font-mono text-[10px] tracking-wide text-muted-foreground uppercase">
+                      Based in
+                    </dt>
+                    <dd className="mt-1 text-sm font-medium">{person.location}</dd>
+                  </div>
+                  <div className="bg-surface px-4 py-3">
+                    <dt className="font-mono text-[10px] tracking-wide text-muted-foreground uppercase">
+                      Focus
+                    </dt>
+                    <dd className="mt-1 text-sm font-medium">Full-stack · Web3 · AI</dd>
+                  </div>
+                </dl>
+              </div>
+            </article>
+          </Reveal>
+
+          {/* Skills as topic badges */}
+          <div id="stack" className="space-y-4">
             {stack.map((group, i) => (
-              <Reveal key={group.name} delay={i * 0.05}>
-                <div className="rounded-xl border border-border bg-surface p-6 transition-all hover:border-border-strong hover:shadow-sm">
-                  <p className="eyebrow">{group.name}</p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
+              <Reveal key={group.name} delay={i * 0.04}>
+                <div className="gh-card gh-card-hover overflow-hidden">
+                  <div className="flex items-center gap-2 border-b border-border px-4 py-2.5">
+                    <FileCode2 className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
+                    <span className="text-sm font-semibold">{group.name}</span>
+                    <span className="gh-label ml-auto">{group.items.length}</span>
+                  </div>
+                  <ul className="flex flex-wrap gap-1.5 p-4">
                     {group.items.map((item) => (
-                      <li
-                        key={item}
-                        className="rounded-md border border-border bg-background px-3 py-1.5 font-mono text-[11px] text-muted-foreground transition-colors hover:text-foreground hover:border-border-strong"
-                      >
+                      <li key={item} className="gh-topic cursor-default">
                         {item}
                       </li>
                     ))}
