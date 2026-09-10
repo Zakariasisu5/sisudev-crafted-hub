@@ -44,7 +44,7 @@ export function ActivityGraph() {
               className="h-[11px] w-[11px] rounded-[2px] opacity-0 transition-transform duration-150 hover:scale-125 motion-reduce:opacity-100"
               style={{
                 backgroundColor: `var(${LEVEL_VARS[level]})`,
-                animation: `fade-in 320ms ease-out ${Math.min(i * 3, 900)}ms forwards`,
+                animation: `cell-in 320ms ease-out ${Math.min(i * 3, 900)}ms forwards`,
               }}
             />
           ))}

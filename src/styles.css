@@ -486,3 +486,14 @@
   color: var(--color-foreground);
   margin-bottom: 0.375rem;
 }
+
+@keyframes cell-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

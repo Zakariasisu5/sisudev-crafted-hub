@@ -25,7 +25,8 @@ export function ThemeToggle({ className = "" }: { className?: string }) {
       type="button"
       onClick={toggle}
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      className={`inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-surface text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground ${className}`}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      className={`gh-icon-btn ${className}`}
     >
       {theme === "dark" ? (
         <Sun className="h-4 w-4" aria-hidden="true" />
