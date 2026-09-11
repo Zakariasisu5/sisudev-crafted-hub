@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { CircleDot, Github, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
@@ -50,10 +51,14 @@ function whatsappLink(enquiry: Enquiry) {
 
 export function Contact() {
   const submit = useServerFn(submitContact);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const mutation = useMutation({
     mutationFn: (data: Record<string, unknown>) => submit({ data } as never),
-    onSuccess: () => toast.success("Message sent — I'll get back to you shortly."),
+    onSuccess: () => {
+      toast.success("Message sent — I'll get back to you shortly.");
+      formRef.current?.reset();
+    },
     onError: () => toast.error("Could not send your message. Please check the fields."),
   });
 
@@ -64,14 +69,11 @@ export function Contact() {
     const enquiry = readForm(form);
     window.open(whatsappLink(enquiry), "_blank", "noopener,noreferrer");
     mutation.mutate({ ...enquiry });
-    form.reset();
   };
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const form = event.currentTarget;
-    mutation.mutate({ ...readForm(form) });
-    form.reset();
+    mutation.mutate({ ...readForm(event.currentTarget) });
   };
 
   return (
