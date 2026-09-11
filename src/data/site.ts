@@ -48,9 +48,8 @@ export const about = {
 } as const;
 
 export const stats = [
-  { value: "4+", label: "Years Experience" },
+  { value: "4+", label: "Years Building" },
   { value: "20+", label: "Projects Shipped" },
-  { value: "20+", label: "Repos Shipped" },
   { value: "Web3 + AI", label: "Specialties" },
   { value: "Remote", label: "Work Style" },
 ] as const;
@@ -196,7 +195,7 @@ export const experience: ExperienceItem[] = [
   {
     role: "Chief Technology Officer",
     organization: "8Nova",
-    period: "Add period",
+    period: "Current",
     current: true,
     summary:
       "Technical leadership across product architecture and engineering delivery, working on both the frontend and backend of the product.",
@@ -212,7 +211,7 @@ export const experience: ExperienceItem[] = [
   {
     role: "Founder & Technical Lead",
     organization: "Independent products",
-    period: "Add period",
+    period: "Ongoing",
     summary:
       "Building and shipping my own products end to end — from problem definition and architecture to production deployment.",
     highlights: [
