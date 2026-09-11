@@ -97,7 +97,7 @@ export function Testimonials() {
           description="Verified testimonials from clients and collaborators."
           action={
             <button type="button" onClick={() => setOpen((v) => !v)} className="gh-btn">
-              {open ? "Close form" : "Add testimonial"}
+              {open ? "Close form" : "Worked with me? Share your experience"}
             </button>
           }
         />
@@ -141,9 +141,7 @@ export function Testimonials() {
         ) : (
           <div className="mt-8 rounded-lg border border-dashed border-border bg-surface p-10 text-center">
             <MessageSquare className="mx-auto h-6 w-6 text-muted-foreground" aria-hidden="true" />
-            <p className="mt-3 text-sm text-muted-foreground">
-              Testimonials are currently being collected. If we've worked together, feel free to submit one.
-            </p>
+            <p className="mt-3 text-sm text-muted-foreground">Testimonials coming soon.</p>
           </div>
         )}
 
