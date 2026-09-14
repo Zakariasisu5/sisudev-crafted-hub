@@ -54,34 +54,27 @@ export const stats = [
   { value: "Remote", label: "Work Style" },
 ] as const;
 
-export type StackGroup = { name: string; items: string[] };
+export type StackGroup = { name: string; items: string[]; emphasized: string[] };
 
 export const stack: StackGroup[] = [
   {
-    name: "Frontend",
+    name: "Core Engineering",
     items: [
       "React",
-      "Next.js",
       "TypeScript",
+      "Next.js",
+      "Node.js",
+      "Python",
+      "PostgreSQL",
       "JavaScript",
       "Angular",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Vite",
-    ],
-  },
-  {
-    name: "Backend",
-    items: [
-      "Node.js",
       "Express.js",
-      "Python",
       "FastAPI",
-      "PostgreSQL",
       "Prisma",
       "Redis",
       "REST APIs",
     ],
+    emphasized: ["React", "TypeScript", "Next.js", "Node.js", "Python", "PostgreSQL"],
   },
   {
     name: "Web3 / Blockchain",
@@ -95,6 +88,7 @@ export const stack: StackGroup[] = [
       "Helius",
       "QuickNode",
     ],
+    emphasized: ["Solana", "Rust", "Sui", "Move", "Smart Contracts"],
   },
   {
     name: "AI",
@@ -107,6 +101,7 @@ export const stack: StackGroup[] = [
       "AI-powered Applications",
       "Machine Learning Integration",
     ],
+    emphasized: ["Python", "AI APIs", "AI Agents", "LLM Integrations"],
   },
   {
     name: "Infrastructure",
@@ -119,6 +114,12 @@ export const stack: StackGroup[] = [
       "Railway",
       "Cloudflare",
     ],
+    emphasized: ["Supabase", "Docker", "GitHub Actions", "Vercel"],
+  },
+  {
+    name: "Additional Tools",
+    items: ["Tailwind CSS", "Framer Motion", "Vite"],
+    emphasized: ["Tailwind CSS"],
   },
 ];
 
@@ -274,7 +275,6 @@ export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
 ] as const;
 

@@ -168,12 +168,20 @@ export function Contact() {
                 >
                   X
                 </a>
+                <a
+                  href={`mailto:${person.email}`}
+                  aria-label="Email"
+                  title="Email"
+                  className="gh-icon-btn"
+                >
+                  <Mail className="h-4 w-4" />
+                </a>
               </li>
             </ul>
           </Reveal>
 
           <Reveal delay={0.06}>
-            <form onSubmit={onSubmit} className="gh-card overflow-hidden">
+            <form ref={formRef} onSubmit={onSubmit} className="gh-card overflow-hidden">
               <div className="flex items-center gap-2 border-b border-border bg-surface-raised px-4 py-2.5">
                 <CircleDot className="h-4 w-4 text-success" aria-hidden="true" />
                 <span className="font-mono text-xs text-foreground">new collaboration request</span>
