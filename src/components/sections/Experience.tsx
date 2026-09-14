@@ -23,7 +23,11 @@ export function Experience() {
             <Reveal as="li" key={`${item.role}-${item.organization}`} delay={i * 0.05}>
               <span
                 className={`absolute -translate-x-[27px] md:-translate-x-[35px] mt-5 grid h-6 w-6 place-items-center rounded-full border bg-background ${
-                  item.current ? "border-success text-success" : "border-border text-muted-foreground"
+                  item.current
+                    ? "border-success text-success"
+                    : item.period === "Ongoing"
+                      ? "border-primary text-primary"
+                      : "border-border text-muted-foreground"
                 }`}
                 aria-hidden="true"
               >
@@ -42,10 +46,19 @@ export function Experience() {
                       {item.summary}
                     </p>
                   </div>
-                  {item.current ? (
-                    <span className="inline-flex w-fit shrink-0 items-center gap-1.5 rounded-full border border-success/40 bg-success/10 px-2.5 py-0.5 font-mono text-[10px] tracking-wide text-success uppercase">
-                      <span className="h-1.5 w-1.5 rounded-full bg-success" aria-hidden="true" />
-                      Current
+                  {item.current || item.period === "Ongoing" ? (
+                    <span
+                      className={`inline-flex w-fit shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono text-[10px] tracking-wide uppercase ${
+                        item.current
+                          ? "border-success/40 bg-success/10 text-success"
+                          : "border-primary/40 bg-primary/10 text-primary"
+                      }`}
+                    >
+                      <span
+                        className={`h-1.5 w-1.5 rounded-full ${item.current ? "bg-success" : "bg-primary"}`}
+                        aria-hidden="true"
+                      />
+                      {item.period}
                     </span>
                   ) : null}
                 </div>
