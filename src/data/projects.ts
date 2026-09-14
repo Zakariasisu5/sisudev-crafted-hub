@@ -153,22 +153,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    repo: "billify-generator-8701",
-    name: "Billify",
-    description:
-      "A bill and invoice generator that lets users create, customize, and download invoices in multiple currencies with ready-to-use templates.",
-    category: "SaaS",
-    technologies: ["JavaScript", "React", "TypeScript", "CSS"],
-    githubUrl: "https://github.com/Zakariasisu5/billify-generator-8701",
-    liveUrl: "https://bill-generator-amber.vercel.app",
-    thumbnail: thumbBillify,
-    highlights: [
-      "Multi-currency invoicing",
-      "Reusable invoice templates",
-      "Download-ready documents",
-    ],
-  },
-  {
     repo: "farmer-focus-connect",
     name: "Farm Focus Connect",
     description:

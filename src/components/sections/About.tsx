@@ -67,7 +67,14 @@ export function About() {
                   </div>
                   <ul className="flex flex-wrap gap-1.5 p-4">
                     {group.items.map((item) => (
-                      <li key={item} className="gh-topic cursor-default">
+                      <li
+                        key={item}
+                        className={`gh-topic cursor-default ${
+                          group.emphasized.includes(item)
+                            ? "border-primary/40 bg-primary/20 font-semibold"
+                            : "border-border bg-surface-raised text-muted-foreground"
+                        }`}
+                      >
                         {item}
                       </li>
                     ))}

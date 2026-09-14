@@ -168,6 +168,14 @@ export function Contact() {
                 >
                   X
                 </a>
+                <a
+                  href={`mailto:${person.email}`}
+                  aria-label="Email"
+                  title="Email"
+                  className="gh-icon-btn"
+                >
+                  <Mail className="h-4 w-4" />
+                </a>
               </li>
             </ul>
           </Reveal>
