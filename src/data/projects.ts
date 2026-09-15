@@ -70,22 +70,23 @@ export const projects: Project[] = [
     ],
   },
   {
-    repo: "ai-fitmind-care-61089",
-    name: "AI FitMind Care",
+    repo: "fitmind-companion",
+    name: "MindTalkAI",
     description:
-      "A comprehensive AI-powered health companion that helps users monitor, track, and improve their physical and mental well-being through voice logging.",
+      "A mobile-first AI health companion for monitoring physical and mental well-being through voice logging, symptom and mood tracking, nutrition logging, cognitive games, and real-time AI insights.",
     category: "AI",
-    technologies: ["TypeScript", "JavaScript", "Supabase", "Tailwind CSS"],
-    githubUrl: "https://github.com/Zakariasisu5/ai-fitmind-care-61089",
-    liveUrl: "https://ai-fitmind-care-61089.vercel.app/",
+    technologies: ["TypeScript", "React", "Supabase", "Tailwind CSS"],
+    githubUrl: "https://github.com/Zakariasisu5/fitmind-companion",
+    liveUrl: "https://mindtalkai.vercel.app",
     thumbnail: thumbFitmind,
     featured: 2,
     highlights: [
-      "Voice logging for health tracking",
-      "Physical and mental well-being monitoring",
-      "Supabase-backed data persistence",
+      "Voice logging, symptom and mood tracking",
+      "Cognitive games and nutrition logging",
+      "Real-time AI insights, privacy-first",
     ],
   },
+
   {
     repo: "Mooncreditfi-sui-move",
     name: "MoonCreditFi",
