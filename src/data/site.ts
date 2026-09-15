@@ -272,11 +272,85 @@ export type Testimonial = {
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/services" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ] as const;
+
+export type EngagementModel = {
+  name: string;
+  price: string;
+  tagline: string;
+  features: string[];
+  featured?: boolean;
+};
+
+export const engagementModels: EngagementModel[] = [
+  {
+    name: "Project Sprint",
+    price: "$1,000–$5,000",
+    tagline: "A focused feature, fix, or MVP slice with a clear scope.",
+    features: [
+      "Scoped deliverable agreed up front",
+      "Frontend, backend, Web3, or AI work",
+      "Regular progress updates",
+      "Code delivered to your repository",
+    ],
+  },
+  {
+    name: "Product Build",
+    price: "$5,000–$10,000",
+    tagline: "End-to-end development of a complete product or major feature set.",
+    features: [
+      "Architecture and stack selection",
+      "Full-stack implementation",
+      "Deployment and infrastructure setup",
+      "Handover documentation",
+    ],
+    featured: true,
+  },
+  {
+    name: "Technical Partner",
+    price: "Let's discuss",
+    tagline: "Ongoing engineering support, architecture, and technical leadership.",
+    features: [
+      "Architecture reviews and decisions",
+      "Team mentoring and code review",
+      "Long-term product engineering",
+      "Flexible monthly engagement",
+    ],
+  },
+];
+
+export type CollaborationStep = { step: string; title: string; description: string };
+
+export const collaborationSteps: CollaborationStep[] = [
+  {
+    step: "01",
+    title: "Reach out",
+    description:
+      "Send a message through the contact form, email, or WhatsApp with a short description of what you want to build.",
+  },
+  {
+    step: "02",
+    title: "Scope the work",
+    description:
+      "We discuss goals, timeline, and budget. I reply with a clear scope, technical approach, and a fixed estimate.",
+  },
+  {
+    step: "03",
+    title: "Build & ship",
+    description:
+      "I work in visible increments — you see progress in the repository and get working software early, not at the end.",
+  },
+  {
+    step: "04",
+    title: "Handover",
+    description:
+      "You get the full codebase, deployment, and documentation — plus support to make sure everything runs in production.",
+  },
+];
 
 export const projectTypes = [
   "Website",
