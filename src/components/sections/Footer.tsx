@@ -44,6 +44,16 @@ export function Footer() {
           >
             <Linkedin className="h-4 w-4" />
           </a>
+          <a
+            href={person.twitter}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label="X profile"
+            title="X"
+            className="gh-icon-btn font-mono text-sm"
+          >
+            X
+          </a>
           <a href={`mailto:${person.email}`} aria-label="Email" className="gh-icon-btn">
             <Mail className="h-4 w-4" />
           </a>
