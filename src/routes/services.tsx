@@ -63,12 +63,10 @@ function ServicesPage() {
                 <span className="text-primary">#</span> services
               </p>
               <h1 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-                Services, pricing, and how we work together
+                Frontend to on-chain. Idea to production.
               </h1>
               <p className="mt-4 max-w-2xl text-[0.9375rem] leading-relaxed text-muted-foreground">
-                I take on selected software engineering projects — frontend, backend, Web3, and AI.
-                Everything below reflects the work I actually ship, with clear engagement models and
-                no surprises.
+                Full-stack, Web3, and AI engineering — one engineer, the whole stack.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 {availability.open ? (
@@ -99,7 +97,7 @@ function ServicesPage() {
             <SectionHeading
               eyebrow="Services"
               title="What I do"
-              description="From concept to production. Frontend, backend, and everything between."
+              
             />
             <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service, i) => {
@@ -140,7 +138,7 @@ function ServicesPage() {
             <SectionHeading
               eyebrow="Pricing"
               title="Engagement models"
-              description="Transparent ranges based on scope. Every project starts with a fixed estimate before any work begins."
+              description="Fixed estimate before any work starts."
             />
             <ul className="mt-8 grid gap-4 md:grid-cols-3">
               {engagementModels.map((model, i) => (
@@ -176,9 +174,7 @@ function ServicesPage() {
                 </Reveal>
               ))}
             </ul>
-            <p className="mt-4 font-mono text-xs text-muted-foreground">
-              Final pricing depends on scope and is always agreed in writing before work starts.
-            </p>
+            
           </div>
         </section>
 
@@ -188,7 +184,7 @@ function ServicesPage() {
             <SectionHeading
               eyebrow="Process"
               title="How we collaborate"
-              description="A simple, transparent process — the same way I run my own products."
+              
             />
             <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {collaborationSteps.map((step, i) => (
@@ -209,8 +205,8 @@ function ServicesPage() {
           <div className="mx-auto max-w-6xl px-4 lg:px-8">
             <SectionHeading
               eyebrow="Track record"
-              title="Experience behind the work"
-              description="Current roles and selected shipped projects."
+              title="Proof of work"
+              
             />
             <div className="mt-8 grid gap-4 lg:grid-cols-2">
               <Reveal>
@@ -271,7 +267,7 @@ function ServicesPage() {
                 <div>
                   <h2 className="text-lg font-semibold">Have a project in mind?</h2>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Tell me what you're building — I'll reply with a scope and estimate.
+                    Scope and estimate within days.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">

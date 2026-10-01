@@ -136,7 +136,7 @@ export const services: Service[] = [
     number: "01",
     title: "Frontend Development",
     description:
-      "Fast, responsive interfaces using React, TypeScript, and modern tooling. I write components that scale and UIs that feel smooth.",
+      "Fast, polished interfaces that scale.",
     tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     icon: "layout",
   },
@@ -144,7 +144,7 @@ export const services: Service[] = [
     number: "02",
     title: "Backend Development",
     description:
-      "APIs, databases, and business logic. From authentication flows to data pipelines, I build backends that handle real traffic.",
+      "APIs, databases, and auth built for real traffic.",
     tags: ["Node.js", "FastAPI", "PostgreSQL", "Redis"],
     icon: "server",
   },
@@ -152,7 +152,7 @@ export const services: Service[] = [
     number: "03",
     title: "Full-Stack Development",
     description:
-      "End-to-end product development. Database design, API architecture, frontend polish—everything needed to ship a complete feature.",
+      "Database to UI — complete products, shipped.",
     tags: ["React", "Node.js", "Supabase", "Prisma"],
     icon: "layers",
   },
@@ -160,7 +160,7 @@ export const services: Service[] = [
     number: "04",
     title: "Web3 Development",
     description:
-      "Smart contracts, wallet integrations, and on-chain systems. I've shipped dApps on Solana and Sui with real transactions flowing through them.",
+      "Smart contracts, wallets, and dApps on Solana and Sui.",
     tags: ["Solana", "Sui / Move", "Rust", "Wallets"],
     icon: "blocks",
   },
@@ -168,7 +168,7 @@ export const services: Service[] = [
     number: "05",
     title: "AI Integration",
     description:
-      "LLM-powered features and AI agents that solve specific problems. I build practical AI tools, not demos—things like smart analytics and automated workflows.",
+      "LLM features, agents, and automation that work in production.",
     tags: ["LLM APIs", "AI Agents", "Python", "Automation"],
     icon: "sparkles",
   },
@@ -176,7 +176,7 @@ export const services: Service[] = [
     number: "06",
     title: "Technical Leadership",
     description:
-      "Architecture decisions, stack selection, and MVP development. I help teams ship faster by making clear technical choices early.",
+      "Architecture, stack choices, and MVPs — done right early.",
     tags: ["Architecture", "Strategy", "MVP", "Mentoring"],
     icon: "compass",
   },
@@ -270,12 +270,12 @@ export type Testimonial = {
 };
 
 export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
   { label: "Services", href: "/services" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 export type EngagementModel = {
@@ -290,7 +290,7 @@ export const engagementModels: EngagementModel[] = [
   {
     name: "Project Sprint",
     price: "$1,000–$5,000",
-    tagline: "A focused feature, fix, or MVP slice with a clear scope.",
+    tagline: "A focused feature, fix, or MVP slice.",
     features: [
       "Scoped deliverable agreed up front",
       "Frontend, backend, Web3, or AI work",
@@ -301,7 +301,7 @@ export const engagementModels: EngagementModel[] = [
   {
     name: "Product Build",
     price: "$5,000–$10,000",
-    tagline: "End-to-end development of a complete product or major feature set.",
+    tagline: "A complete product, end to end.",
     features: [
       "Architecture and stack selection",
       "Full-stack implementation",
@@ -313,7 +313,7 @@ export const engagementModels: EngagementModel[] = [
   {
     name: "Technical Partner",
     price: "Let's discuss",
-    tagline: "Ongoing engineering support, architecture, and technical leadership.",
+    tagline: "Ongoing engineering and technical leadership.",
     features: [
       "Architecture reviews and decisions",
       "Team mentoring and code review",
@@ -330,25 +330,25 @@ export const collaborationSteps: CollaborationStep[] = [
     step: "01",
     title: "Reach out",
     description:
-      "Send a message through the contact form, email, or WhatsApp with a short description of what you want to build.",
+      "Tell me what you're building.",
   },
   {
     step: "02",
     title: "Scope the work",
     description:
-      "We discuss goals, timeline, and budget. I reply with a clear scope, technical approach, and a fixed estimate.",
+      "Clear scope, approach, and fixed estimate.",
   },
   {
     step: "03",
     title: "Build & ship",
     description:
-      "I work in visible increments — you see progress in the repository and get working software early, not at the end.",
+      "Visible progress, working software early.",
   },
   {
     step: "04",
     title: "Handover",
     description:
-      "You get the full codebase, deployment, and documentation — plus support to make sure everything runs in production.",
+      "Full code, deployment, and docs — yours.",
   },
 ];
 

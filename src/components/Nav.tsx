@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { navLinks, person } from "@/data/site";
 import { ThemeToggle } from "./ThemeToggle";
 
-const sectionIds = navLinks.map((l) => l.href.slice(1));
+const sectionIds = navLinks.map((l) => l.href.split("#")[1] ?? l.href.slice(1));
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,7 +46,7 @@ export function Nav() {
     >
       <nav aria-label="Primary" className="mx-auto max-w-6xl px-4 lg:px-8">
         <div className="flex h-14 items-center justify-between gap-4">
-          <a href="#home" className="flex min-w-0 items-center gap-2.5">
+          <a href="/#home" className="flex min-w-0 items-center gap-2.5">
             <span className="grid h-8 w-8 shrink-0 place-items-center rounded-md border border-border-strong bg-surface-raised font-mono text-xs font-semibold text-foreground">
               {person.initials}
             </span>
@@ -58,7 +58,7 @@ export function Nav() {
 
           <ul className="hidden h-full items-center gap-1 lg:flex">
             {navLinks.map((link) => {
-              const id = link.href.slice(1);
+              const id = link.href.split("#")[1] ?? link.href.slice(1);
               const isActive = active === id;
               return (
                 <li key={link.href} className="relative">
@@ -84,7 +84,7 @@ export function Nav() {
 
           <div className="flex shrink-0 items-center gap-2">
             <ThemeToggle />
-            <a href="#contact" className="gh-btn-primary hidden sm:inline-flex">
+            <a href="/#contact" className="gh-btn-primary hidden sm:inline-flex">
               Start a project
             </a>
             <button
@@ -109,7 +109,7 @@ export function Nav() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={`block px-1 py-3 text-sm transition-colors hover:text-foreground ${
-                    active === link.href.slice(1)
+                    link.href.endsWith(active)
                       ? "font-semibold text-foreground"
                       : "text-muted-foreground"
                   }`}
@@ -119,7 +119,7 @@ export function Nav() {
               </li>
             ))}
             <li className="py-3">
-              <a href="#contact" onClick={() => setOpen(false)} className="gh-btn-primary w-full">
+              <a href="/#contact" onClick={() => setOpen(false)} className="gh-btn-primary w-full">
                 Start a project
               </a>
             </li>
