@@ -267,7 +267,7 @@ function ServicesPage() {
                 <div>
                   <h2 className="text-lg font-semibold">Have a project in mind?</h2>
                   <p className="mt-1 text-sm text-muted-foreground">
-                    Scope and estimate within days.
+                    Get a clear scope and fixed estimate.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">
