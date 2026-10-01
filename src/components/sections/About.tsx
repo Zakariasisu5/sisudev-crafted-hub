@@ -1,4 +1,4 @@
-import { BookOpen, FileCode2 } from "lucide-react";
+import { FileCode2 } from "lucide-react";
 import { about, person, stack } from "@/data/site";
 import { Reveal } from "../Reveal";
 import { SectionHeading } from "../SectionHeading";
@@ -10,14 +10,9 @@ export function About() {
         <SectionHeading eyebrow="About" title={about.title} />
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-10">
-          {/* README-style document */}
+          
           <Reveal>
             <article className="gh-card overflow-hidden">
-              <div className="flex items-center gap-2 border-b border-border bg-surface-raised px-4 py-2.5">
-                <BookOpen className="h-4 w-4 text-muted-foreground" aria-hidden="true" />
-                <span className="font-mono text-xs text-foreground">README.md</span>
-              </div>
-
               <div className="p-5 md:p-7">
                 <h3 className="border-b border-border pb-2 text-xl font-semibold">
                   {about.title}
